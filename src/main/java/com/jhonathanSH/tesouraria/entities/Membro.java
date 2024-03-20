@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.Objects;
 
+<<<<<<< HEAD
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,15 +13,23 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name ="tb_membro")
+=======
+>>>>>>> b5f1873fe57eff3e98528e60b427e5a57c44fdd4
 public class Membro implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
+<<<<<<< HEAD
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
 	private Date registroMembresia;
+=======
+	private Long id;
+	private String name;
+	private Date registrMembresia;
+>>>>>>> b5f1873fe57eff3e98528e60b427e5a57c44fdd4
 	private Date aniversario;
 	private Date bastismo;
 	
@@ -31,7 +40,11 @@ public class Membro implements Serializable{
 		super();
 		this.id = id;
 		this.name = name;
+<<<<<<< HEAD
 		this.registroMembresia = registrMembresia;
+=======
+		this.registrMembresia = registrMembresia;
+>>>>>>> b5f1873fe57eff3e98528e60b427e5a57c44fdd4
 		this.aniversario = aniversario;
 		this.bastismo = bastismo;
 	}
@@ -53,11 +66,19 @@ public class Membro implements Serializable{
 	}
 
 	public Date getRegistrMembresia() {
+<<<<<<< HEAD
 		return registroMembresia;
 	}
 
 	public void setRegistrMembresia(Date registrMembresia) {
 		this.registroMembresia = registrMembresia;
+=======
+		return registrMembresia;
+	}
+
+	public void setRegistrMembresia(Date registrMembresia) {
+		this.registrMembresia = registrMembresia;
+>>>>>>> b5f1873fe57eff3e98528e60b427e5a57c44fdd4
 	}
 
 	public Date getAniversario() {
