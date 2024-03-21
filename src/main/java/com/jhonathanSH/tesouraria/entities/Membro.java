@@ -20,23 +20,23 @@ public class Membro implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String name;
+	private String nome;
 	private Instant registroMembresia;
 	private Instant aniversario;
-	private Instant bastismo;
+	private Instant batismo;
 	
 	
 	
 	public Membro() {
 	}
 
-	public Membro(Long id, String name, Instant registroMembresia, Instant aniversario, Instant bastismo) {
+	public Membro(Long id, String nome, Instant registroMembresia, Instant aniversario, Instant batismo) {
 		super();
 		this.id = id;
-		this.name = name;
+		this.nome = nome;
 		this.registroMembresia = registroMembresia;
 		this.aniversario = aniversario;
-		this.bastismo = bastismo;
+		this.batismo = batismo;
 	}
 
 	public Long getId() {
@@ -48,11 +48,11 @@ public class Membro implements Serializable{
 	}
 
 	public String getName() {
-		return name;
+		return nome;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String nome) {
+		this.nome = nome;
 	}
 
 	public Instant getRegistroMembresia() {
@@ -71,12 +71,12 @@ public class Membro implements Serializable{
 		this.aniversario = aniversario;
 	}
 
-	public Instant getBastismo() {
-		return bastismo;
+	public Instant getBatismo() {
+		return batismo;
 	}
 
-	public void setBastismo(Instant bastismo) {
-		this.bastismo = bastismo;
+	public void setBatismo(Instant batismo) {
+		this.batismo = batismo;
 	}
 
 	@Override
