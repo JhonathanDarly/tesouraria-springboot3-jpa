@@ -1,7 +1,7 @@
 package com.jhonathanSH.tesouraria.entities;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.time.Instant;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
@@ -21,18 +21,20 @@ public class Membro implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	private Date registroMembresia;
-	private Date aniversario;
-	private Date bastismo;
+	private Instant registroMembresia;
+	private Instant aniversario;
+	private Instant bastismo;
+	
+	
 	
 	public Membro() {
 	}
 
-	public Membro(Long id, String name, Date registrMembresia, Date aniversario, Date bastismo) {
+	public Membro(Long id, String name, Instant registroMembresia, Instant aniversario, Instant bastismo) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.registroMembresia = registrMembresia;
+		this.registroMembresia = registroMembresia;
 		this.aniversario = aniversario;
 		this.bastismo = bastismo;
 	}
@@ -53,27 +55,27 @@ public class Membro implements Serializable{
 		this.name = name;
 	}
 
-	public Date getRegistrMembresia() {
+	public Instant getRegistroMembresia() {
 		return registroMembresia;
 	}
 
-	public void setRegistrMembresia(Date registrMembresia) {
-		this.registroMembresia = registrMembresia;
+	public void setRegistroMembresia(Instant registroMembresia) {
+		this.registroMembresia = registroMembresia;
 	}
 
-	public Date getAniversario() {
+	public Instant getAniversario() {
 	return aniversario;
 	}
 
-	public void setAniversario(Date aniversario) {
+	public void setAniversario(Instant aniversario) {
 		this.aniversario = aniversario;
 	}
 
-	public Date getBastismo() {
+	public Instant getBastismo() {
 		return bastismo;
 	}
 
-	public void setBastismo(Date bastismo) {
+	public void setBastismo(Instant bastismo) {
 		this.bastismo = bastismo;
 	}
 

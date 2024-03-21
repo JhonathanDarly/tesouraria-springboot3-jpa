@@ -9,28 +9,28 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jhonathanSH.tesouraria.entities.Membro;
-import com.jhonathanSH.tesouraria.services.MembroService;
+import com.jhonathanSH.tesouraria.entities.Entrada;
+import com.jhonathanSH.tesouraria.services.EntradaService;
 
 
 @RestController
-@RequestMapping(value = "/membros")
-public class MembroResource {
+@RequestMapping(value = "/entradas")
+public class EntradaResource {
 	
 	@Autowired
-	private MembroService service;
+	private EntradaService service;
 
-	//End Point para buscar todos os membros
+	//End Point para buscar todos as entradas
 	@GetMapping
-	public ResponseEntity<List<Membro>> findAll() {
-		List<Membro> list = service.findAll();
+	public ResponseEntity<List<Entrada>> findAll() {
+		List<Entrada> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 	
-	//End Point para buscar membro por ID
+	//End Point para buscar entrada por ID
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Membro> findById(@PathVariable Long id){
-		Membro obj = service.findById(id);
+	public ResponseEntity<Entrada> findById(@PathVariable Long id){
+		Entrada obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
 	
