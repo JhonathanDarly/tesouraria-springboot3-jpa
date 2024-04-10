@@ -9,5 +9,4 @@ public class TesourariaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TesourariaApplication.class, args);
 	}
-
 }

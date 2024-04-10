@@ -13,24 +13,28 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name ="tb_entrada")
-public class Entrada implements Serializable{
+@Table(name = "tb_entrada")
+public class Entrada implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Instant momento;
 	private Double valor;
 	
-	
+
 	private TipoEntrada tipoEntrada;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "membro_id")
 	private Membro membro;
 
+	@ManyToOne
+	@JoinColumn(name = "relatorio_id")
+	Relatorio relatorio;
+	
 	public Entrada() {
 	}
 
@@ -82,9 +86,9 @@ public class Entrada implements Serializable{
 	public void setMembro(Membro membro) {
 		this.membro = membro;
 	}
-
+	
 	@Override
-	public int hashCode() {
+	public int hashCode(){
 		return Objects.hash(id);
 	}
 
@@ -99,8 +103,5 @@ public class Entrada implements Serializable{
 		Entrada other = (Entrada) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-	
-	
-	
+
 }

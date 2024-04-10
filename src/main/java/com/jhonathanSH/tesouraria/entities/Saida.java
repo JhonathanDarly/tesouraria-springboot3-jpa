@@ -27,6 +27,10 @@ public class Saida implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "itemSaida_id")
 	private ItemSaida itemSaida;
+	
+	@ManyToOne
+	@JoinColumn(name = "relatorio_id")
+	Relatorio relatorio;
 
 	public Saida() {
 	}
