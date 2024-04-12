@@ -4,7 +4,10 @@ import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -31,20 +34,22 @@ public class Entrada implements Serializable {
 	@JoinColumn(name = "membro_id")
 	private Membro membro;
 
-	@ManyToOne
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "relatorio_id")
-	Relatorio relatorio;
+	private Relatorio relatorio;
 	
 	public Entrada() {
 	}
 
-	public Entrada(Long id, Instant momento, Double valor, TipoEntrada tipoEntrada, Membro membro) {
+	public Entrada(Long id, Instant momento, Double valor, TipoEntrada tipoEntrada, Membro membro, Relatorio relatorio) {
 		super();
 		this.id = id;
 		this.momento = momento;
 		this.valor = valor;
 		this.tipoEntrada = tipoEntrada;
 		this.membro = membro;
+		this.relatorio = relatorio;
 	}
 
 	public Long getId() {
@@ -87,6 +92,14 @@ public class Entrada implements Serializable {
 		this.membro = membro;
 	}
 	
+	public Relatorio getRelatorio() {
+		return relatorio;
+	}
+
+	public void setRelatorio(Relatorio relatorio) {
+		this.relatorio = relatorio;
+	}
+
 	@Override
 	public int hashCode(){
 		return Objects.hash(id);

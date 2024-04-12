@@ -63,10 +63,7 @@ public class ItemSaida implements Serializable {
 			return false;
 		ItemSaida other = (ItemSaida) obj;
 		return Objects.equals(id, other.id) && Objects.equals(nome, other.nome);
-	}
-	
-	
-	
+	}	
 	
 	
 }

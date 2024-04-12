@@ -20,19 +20,25 @@ public class RelatorioResource {
 	@Autowired
 	private RelatorioService service;
 
-	//End Point para buscar todos as entradas
+	//EndPoint para buscar todos as entradas
 	@GetMapping
 	public ResponseEntity<List<Relatorio>> findAll() {
 		List<Relatorio> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 	
-	//End Point para buscar entrada por ID
+	//EndPoint para buscar entrada por ID
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Relatorio> findById(@PathVariable Long id){
 		Relatorio obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
 	
+    // EndPoint para printar o relatório
+    @GetMapping("/print")
+    public ResponseEntity<String> printRelatorio() {
+        String relatorio = service.gerarRelatorio();
+        return ResponseEntity.ok().body(relatorio);
+    }
 
-}
+	}

@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,19 +30,21 @@ public class Saida implements Serializable{
 	@JoinColumn(name = "itemSaida_id")
 	private ItemSaida itemSaida;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "relatorio_id")
-	Relatorio relatorio;
+	private Relatorio relatorio;
 
 	public Saida() {
 	}
 
-	public Saida(Long id, Instant momento, Double valor, ItemSaida itemSaida) {
+	public Saida(Long id, Instant momento, Double valor, ItemSaida itemSaida, Relatorio relatorio) {
 		super();
 		this.id = id;
 		this.momento = momento;
 		this.valor = valor;
 		this.itemSaida = itemSaida;
+		this.relatorio = relatorio;
 	}
 
 	public Long getId() {
@@ -73,6 +77,14 @@ public class Saida implements Serializable{
 
 	public ItemSaida getItemSaida() {
 		return itemSaida;
+	}
+
+	public Relatorio getRelatorio() {
+		return relatorio;
+	}
+
+	public void setRelatorio(Relatorio relatorio) {
+		this.relatorio = relatorio;
 	}
 
 	@Override
